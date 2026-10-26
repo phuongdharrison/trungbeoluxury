@@ -5,3 +5,5 @@
 .heroimage video{display:block;width:100%;height:100%;object-fit:cover;object-position:center}.heroimage .caption{bottom:65px;pointer-events:none}
 
 .filters{flex-wrap:wrap;gap:10px 24px}.filters button{text-align:left;line-height:1.6;max-width:100%}.filters button:hover,.filters button:focus-visible{color:var(--gold);border-bottom-color:var(--gold)}
+
+.store-admin-link{margin-top:20px;text-align:right;font-size:12px}.store-admin-link a{display:inline-block;padding:10px 0;text-decoration:underline;text-underline-offset:4px}.store-admin-link a:hover{color:var(--gold)}.store-admin-link a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
