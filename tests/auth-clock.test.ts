@@ -2,11 +2,21 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'node:path'
+import { readFile } from 'node:fs/promises'
 import { withAuthServerTime } from '../src/lib/authResponse'
 
 const authPath = resolve('node_modules/@payloadcms/ui/dist/providers/Auth')
 const { createAuthClock } = await import(pathToFileURL(`${authPath}/sessionClock.js`).href)
 const { getAuthSessionTiming } = await import(pathToFileURL(`${authPath}/sessionTiming.js`).href)
+
+test('the CMS browser bundle also uses the synchronized session clock', async () => {
+  const bundle = await readFile(resolve(authPath, '../../exports/client/index.js'), 'utf8')
+  assert.match(bundle, /authNow as cmsAuthNow/)
+  assert.match(bundle, /cmsSyncAuthClock\(X.serverTime\)/)
+  const auth = bundle.slice(bundle.indexOf('function MS('), bundle.indexOf('var Ie='))
+  assert.ok(auth.includes('cmsAuthNow'))
+  assert.ok(!auth.includes('Date.now'))
+})
 
 test('session lasts two hours with device clocks seven hours ahead or behind', () => {
   const serverTime = 1_800_000_000_000
