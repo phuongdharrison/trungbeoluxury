@@ -3,3 +3,5 @@
 .shop-policies{background:#eeede4}.shop-policies h2{margin:20px 0 40px}.policygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:45px}.policygrid h3{font-size:31px;margin:20px 0 15px}.policygrid p{font-size:12px}.policygrid .meta{font-size:10px;color:#75796c}.contactdetails p{margin:15px auto}.contactdetails a:hover{color:#a88951}.contactbuttons{display:flex;align-items:center;justify-content:center;gap:28px;margin:25px 0}.drawer .policygrid{grid-template-columns:1fr;gap:20px}.drawer .contactbuttons{flex-wrap:wrap;justify-content:flex-start}.drawer .contactdetails p{max-width:none}@media(max-width:640px){.policygrid{grid-template-columns:1fr;gap:25px}.contactbuttons{flex-wrap:wrap;gap:20px}.contactdetails{padding:0 15px}}
 
 .heroimage video{display:block;width:100%;height:100%;object-fit:cover;object-position:center}.heroimage .caption{bottom:65px;pointer-events:none}
+
+.filters{flex-wrap:wrap;gap:10px 24px}.filters button{text-align:left;line-height:1.6;max-width:100%}.filters button:hover,.filters button:focus-visible{color:var(--gold);border-bottom-color:var(--gold)}
