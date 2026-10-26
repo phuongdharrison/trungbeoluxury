@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@payloadcms/ui@3.92.0':
+    hash: d4fdfd3c16ac905cad12d1f88713155b6da4516b2e9b420b85072ddc3fe983c0
+    path: patches/@payloadcms__ui@3.92.0.patch
+
 importers:
 
   .:
@@ -22,7 +27,7 @@ importers:
         version: 3.92.0
       '@payloadcms/ui':
         specifier: 3.92.0
-        version: 3.92.0(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)
+        version: 3.92.0(patch_hash=d4fdfd3c16ac905cad12d1f88713155b6da4516b2e9b420b85072ddc3fe983c0)(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)
       '@vercel/blob':
         specifier: 2.8.2
         version: 2.8.2
@@ -3039,7 +3044,7 @@ snapshots:
       '@dnd-kit/sortable': 10.0.0(@dnd-kit/core@6.3.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       '@payloadcms/graphql': 3.92.0(graphql@16.14.2)(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(typescript@5.9.3)
       '@payloadcms/translations': 3.92.0
-      '@payloadcms/ui': 3.92.0(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)
+      '@payloadcms/ui': 3.92.0(patch_hash=d4fdfd3c16ac905cad12d1f88713155b6da4516b2e9b420b85072ddc3fe983c0)(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)
       busboy: 1.6.0
       dequal: 2.0.3
       file-type: 21.3.4
@@ -3063,7 +3068,7 @@ snapshots:
 
   '@payloadcms/plugin-cloud-storage@3.92.0(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)':
     dependencies:
-      '@payloadcms/ui': 3.92.0(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)
+      '@payloadcms/ui': 3.92.0(patch_hash=d4fdfd3c16ac905cad12d1f88713155b6da4516b2e9b420b85072ddc3fe983c0)(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)
       find-node-modules: 2.1.3
       payload: 3.92.0(graphql@16.14.2)(typescript@5.9.3)
       range-parser: 1.3.0
@@ -3080,7 +3085,7 @@ snapshots:
     dependencies:
       date-fns: 4.1.0
 
-  '@payloadcms/ui@3.92.0(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)':
+  '@payloadcms/ui@3.92.0(patch_hash=d4fdfd3c16ac905cad12d1f88713155b6da4516b2e9b420b85072ddc3fe983c0)(@types/react@19.3.0)(monaco-editor@0.57.0)(next@16.4.3(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.92.0(graphql@16.14.2)(typescript@5.9.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(typescript@5.9.3)':
     dependencies:
       '@date-fns/tz': 1.2.0
       '@dnd-kit/core': 6.3.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)

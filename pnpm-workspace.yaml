@@ -1,3 +1,5 @@
 onlyBuiltDependencies:
   - esbuild
   - sharp
+patchedDependencies:
+  '@payloadcms/ui@3.92.0': patches/@payloadcms__ui@3.92.0.patch

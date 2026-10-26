@@ -1,0 +1,232 @@
+diff --git a/dist/providers/Auth/AuthSessionDebug/index.js b/dist/providers/Auth/AuthSessionDebug/index.js
+index 3d128645eec7af8837233b2bf1da01991b757769..1ef185e39617b64b19ac639ce7fda96475ac342c 100644
+--- a/dist/providers/Auth/AuthSessionDebug/index.js
++++ b/dist/providers/Auth/AuthSessionDebug/index.js
+@@ -1,4 +1,6 @@
+ 'use client';
++import { authNow } from '../sessionClock.js';
++
+ 
+ import { c as _c } from "react/compiler-runtime";
+ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+@@ -24,7 +26,7 @@ export const AuthSessionDebug = t0 => {
+   let t2;
+   if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
+     t1 = () => {
+-      const updateCountdown = () => setNowMs(Date.now());
++      const updateCountdown = () => setNowMs(authNow());
+       updateCountdown();
+       const interval = window.setInterval(updateCountdown, 1000);
+       return () => window.clearInterval(interval);
+diff --git a/dist/providers/Auth/index.js b/dist/providers/Auth/index.js
+index 14bb0982ecf522063294ba25acb5fbad0b7b3c2e..5853d41338a187026061a13602e945f108d552e5 100644
+--- a/dist/providers/Auth/index.js
++++ b/dist/providers/Auth/index.js
+@@ -1,4 +1,8 @@
+ 'use client';
++import { synchronizeAuthClock } from './sessionClock.js';
++
++import { authNow } from './sessionClock.js';
++
+ 
+ import { jsx as _jsx } from "react/jsx-runtime";
+ import { useModal } from '@faceless-ui/modal';
+@@ -133,6 +137,7 @@ export function AuthProvider({
+   }, [sessionTimers]);
+   const setLocalSession = useCallback(session => {
+     if (session?.user) {
++      synchronizeAuthClock(session.serverTime);
+       const expirationMs_0 = typeof session.exp === 'number' && Number.isFinite(session.exp) ? session.exp * 1000 : undefined;
+       const nextSessionTiming = expirationMs_0 !== undefined ? sessionTimers.setExpiration(expirationMs_0) : undefined;
+       if (expirationMs_0 === undefined) {
+@@ -210,7 +215,7 @@ export function AuthProvider({
+       const handledExpiration = sessionTimers.getCurrentExpirationMs();
+       const handledUser = userRef.current;
+       try {
+-        const refreshStartedAt = Date.now();
++        const refreshStartedAt = authNow();
+         const request = await requests.post(formatAdminURL({
+           apiRoute,
+           path: `/${userSlug}/refresh-token${isActivityRefresh ? '?refresh' : ''}`
+diff --git a/dist/providers/Auth/sessionActivity.js b/dist/providers/Auth/sessionActivity.js
+index 7d78088c805e411d9d62d72264f58e29df17d234..e5a320df35a4ba59e7062caa441f566e2cdcea95 100644
+--- a/dist/providers/Auth/sessionActivity.js
++++ b/dist/providers/Auth/sessionActivity.js
+@@ -1,3 +1,4 @@
++import { authNow } from './sessionClock.js';
+ export const sessionActivityThrottleMs = 5_000;
+ /**
+  * Coalesces browser and route activity into periodic session activity.
+@@ -6,7 +7,7 @@ export const sessionActivityThrottleMs = 5_000;
+  * interval is ignored and does not call `onActivity`.
+  */
+ export function createSessionActivityTracker({
+-  now = Date.now,
++  now = authNow,
+   onActivity,
+   throttleMs = sessionActivityThrottleMs
+ }) {
+diff --git a/dist/providers/Auth/sessionClock.js b/dist/providers/Auth/sessionClock.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..662cbb9337156dc73fe02b86bdcd3eeec84279eb
+--- /dev/null
++++ b/dist/providers/Auth/sessionClock.js
+@@ -0,0 +1,17 @@
++// Keep session timers in server time, independently of the device wall clock.
++export function createAuthClock({ wallNow = Date.now, monotonicNow = () => performance.now() } = {}) {
++  let serverEpoch;
++  let monotonicEpoch;
++  return {
++    now: () => serverEpoch === undefined ? wallNow() : serverEpoch + Math.max(0, monotonicNow() - monotonicEpoch),
++    synchronize: serverTime => {
++      if (typeof serverTime !== 'number' || !Number.isFinite(serverTime) || serverTime <= 0) return;
++      const previousTime = serverEpoch === undefined ? serverTime : serverEpoch + Math.max(0, monotonicNow() - monotonicEpoch);
++      serverEpoch = Math.max(serverTime, previousTime);
++      monotonicEpoch = monotonicNow();
++    },
++  };
++}
++const clock = createAuthClock();
++export const authNow = clock.now;
++export const synchronizeAuthClock = clock.synchronize;
+diff --git a/dist/providers/Auth/sessionTiming.js b/dist/providers/Auth/sessionTiming.js
+index 078301cf7d0cb8cded0feda468e892d462e9361a..30ae6b71dc7881b3afd500425b8949ba07b5e9a7 100644
+--- a/dist/providers/Auth/sessionTiming.js
++++ b/dist/providers/Auth/sessionTiming.js
+@@ -1,8 +1,9 @@
++import { authNow } from './sessionClock.js';
+ /**
+  * Returns the fixed lifecycle boundaries for a token expiration.
+  */export function getAuthSessionTiming({
+   expirationMs,
+-  nowMs = Date.now()
++  nowMs = authNow()
+ }) {
+   const expiresInMs = Math.max(0, expirationMs - nowMs);
+   const reminderWindowMs = Math.min(60_000, expiresInMs / 2);
+diff --git a/dist/providers/Auth/tabSessionSync/index.js b/dist/providers/Auth/tabSessionSync/index.js
+index 60e75f8b52b1124015997e638a63727d6b3f6905..68da0aa4ff9386d492778cb32a5191faf117dda4 100644
+--- a/dist/providers/Auth/tabSessionSync/index.js
++++ b/dist/providers/Auth/tabSessionSync/index.js
+@@ -1,3 +1,4 @@
++import { authNow } from '../sessionClock.js';
+ import { TAB_SESSION_EVENT_TYPES } from './types.js';
+ import { compareLifecycleOrders, createTabSessionMessage, getLifecycleOrder, isTabSessionMessage, parseTabSessionStorageNotification, tabSessionSyncChannelName, tabSessionSyncStorageKey } from './utilities.js';
+ export { TAB_SESSION_EVENT_TYPES } from './types.js';
+@@ -11,7 +12,7 @@ export { TAB_SESSION_EVENT_TYPES } from './types.js';
+  */
+ export function createTabSessionSync({
+   getTokenExpirationMs,
+-  now = Date.now,
++  now = authNow,
+   onSessionExpired,
+   onSessionLoggedOut,
+   onSessionRefreshed,
+diff --git a/dist/providers/Auth/tabSessionSync/useTabSessionSync.js b/dist/providers/Auth/tabSessionSync/useTabSessionSync.js
+index c596b58e864a4abff736ce52b4154f7f8d5491a6..bb35c16d58847efebd0149e108dc329cfeaccb32 100644
+--- a/dist/providers/Auth/tabSessionSync/useTabSessionSync.js
++++ b/dist/providers/Auth/tabSessionSync/useTabSessionSync.js
+@@ -1,4 +1,6 @@
+ 'use client';
++import { authNow } from '../sessionClock.js';
++
+ 
+ import { c as _c } from "react/compiler-runtime";
+ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+@@ -85,6 +87,6 @@ export function useTabSessionSync(options) {
+   return t6;
+ }
+ function createTabID() {
+-  return globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
++  return globalThis.crypto?.randomUUID?.() ?? `${authNow()}-${Math.random()}`;
+ }
+ //# sourceMappingURL=useTabSessionSync.js.map
+\ No newline at end of file
+diff --git a/dist/providers/Auth/useAuthSessionTimers.js b/dist/providers/Auth/useAuthSessionTimers.js
+index 5c9d4b7bae6988bfffb3c6e864504eb521d3682c..958fadb9310902600f5c929d1ee7d674fc8a4df7 100644
+--- a/dist/providers/Auth/useAuthSessionTimers.js
++++ b/dist/providers/Auth/useAuthSessionTimers.js
+@@ -1,4 +1,6 @@
+ 'use client';
++import { authNow } from './sessionClock.js';
++
+ 
+ import { useCallback, useEffect, useMemo, useRef } from 'react';
+ import { createSessionActivityTracker, registerSessionActivityListeners } from './sessionActivity.js';
+@@ -39,7 +41,7 @@ export function useAuthSessionTimers({
+       return;
+     }
+     const sessionTiming = sessionTimingRef.current;
+-    if (forceRefresh || sessionTiming && Date.now() >= sessionTiming.refreshStartsAt) {
++    if (forceRefresh || sessionTiming && authNow() >= sessionTiming.refreshStartsAt) {
+       clearTimeout(scheduledRefreshTimeoutRef.current);
+       scheduledRefreshTimeoutRef.current = setTimeout(() => {
+         callbacksRef.current.onActivityRefresh();
+@@ -57,7 +59,7 @@ export function useAuthSessionTimers({
+     }
+   }), [scheduleRefresh]);
+   const recordActivity = useCallback(source => {
+-    const occurredAt_0 = Date.now();
++    const occurredAt_0 = authNow();
+     const sessionTiming_0 = sessionTimingRef.current;
+     const isActivityWindowOpen = sessionTiming_0 && occurredAt_0 >= sessionTiming_0.activityTrackingStartsAt && occurredAt_0 < sessionTiming_0.reminderStartsAt;
+     if (!activityListenerCleanupRef.current || !isActivityWindowOpen) {
+@@ -111,18 +113,18 @@ export function useAuthSessionTimers({
+       if (tokenExpirationMsRef.current !== expirationMs) {
+         return;
+       }
+-      const reminderStartsInMs = Math.max(sessionTiming_1.reminderStartsAt - Date.now(), 0);
++      const reminderStartsInMs = Math.max(sessionTiming_1.reminderStartsAt - authNow(), 0);
+       reminderTimeoutRef.current = setTimeout(() => {
+         if (tokenExpirationMsRef.current !== expirationMs) {
+           return;
+         }
+-        if (Date.now() < sessionTiming_1.reminderStartsAt) {
++        if (authNow() < sessionTiming_1.reminderStartsAt) {
+           scheduleReminder();
+           return;
+         }
+         clearTimeout(scheduledRefreshTimeoutRef.current);
+         removeActivityListeners();
+-        if (Date.now() < sessionTiming_1.expiresAt) {
++        if (authNow() < sessionTiming_1.expiresAt) {
+           callbacksRef.current.onReminder();
+         }
+       }, Math.min(reminderStartsInMs, maxTimeoutMs));
+@@ -131,12 +133,12 @@ export function useAuthSessionTimers({
+       if (tokenExpirationMsRef.current !== expirationMs) {
+         return;
+       }
+-      const refreshStartsInMs = Math.max(sessionTiming_1.refreshStartsAt - Date.now(), 0);
++      const refreshStartsInMs = Math.max(sessionTiming_1.refreshStartsAt - authNow(), 0);
+       activityCheckpointTimeoutRef.current = setTimeout(() => {
+         if (tokenExpirationMsRef.current !== expirationMs) {
+           return;
+         }
+-        const checkpointAt = Date.now();
++        const checkpointAt = authNow();
+         if (checkpointAt < sessionTiming_1.refreshStartsAt) {
+           scheduleActivityCheckpoint();
+           return;
+@@ -152,10 +154,10 @@ export function useAuthSessionTimers({
+       if (tokenExpirationMsRef.current !== expirationMs) {
+         return;
+       }
+-      const expiresInMs = Math.max(sessionTiming_1.expiresAt - Date.now(), 0);
++      const expiresInMs = Math.max(sessionTiming_1.expiresAt - authNow(), 0);
+       forceLogOutTimeoutRef.current = setTimeout(() => {
+         if (tokenExpirationMsRef.current === expirationMs) {
+-          if (Date.now() < sessionTiming_1.expiresAt) {
++          if (authNow() < sessionTiming_1.expiresAt) {
+             scheduleExpiration();
+             return;
+           }
+@@ -165,7 +167,7 @@ export function useAuthSessionTimers({
+         }
+       }, Math.min(expiresInMs, maxTimeoutMs));
+     };
+-    hasActiveSessionRef.current = expirationMs > Date.now();
++    hasActiveSessionRef.current = expirationMs > authNow();
+     if (hasActiveSessionRef.current) {
+       addActivityListeners();
+       scheduleReminder();
