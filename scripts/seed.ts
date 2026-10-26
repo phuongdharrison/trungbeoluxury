@@ -36,3 +36,5 @@ try{
  console.log('Imported existing website: 4 categories, 4 illustrative products, 2 inspirations and website settings. No accounts or passwords created.')
 }catch{console.error('Seed failed. Check server configuration; secret values are intentionally omitted.');process.exitCode=1}
 await payload.destroy()
+
+process.exit(process.exitCode || 0)

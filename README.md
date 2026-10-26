@@ -4,9 +4,9 @@ Website Next.js và Payload CMS, dùng PostgreSQL Neon và Vercel Blob riêng t�
 
 ## Trạng thái triển khai
 
-- `main`: bản HTML hiện đang phục vụ trên website.
-- `cms/payload`: bản CMS đang phát triển và kiểm thử; không phải toàn bộ lộ trình đã hoàn tất.
-- `/admin`: quản trị có đăng nhập khi chạy ứng dụng Next.js.
+- `main`: nhánh phát hành; bản CMS đầu tiên được đưa lên sau khi Preview đạt kiểm tra.
+- `cms/payload`: nhánh xây bản CMS đầu tiên; chưa phải toàn bộ lộ trình đã hoàn tất.
+- `/admin`: quản trị có đăng nhập; tài khoản chủ cửa hàng được tự thiết lập riêng trên localhost trước khi phát hành.
 - `dist/admin/`: bản HTML duyệt giao diện trước đây, không phải hệ thống lưu dữ liệu.
 
 ## Phát triển trên máy

@@ -19,7 +19,7 @@ try{
  await assert.rejects(p.update({collection:'products',id:doc.id,user:editor,overrideAccess:false,data:{_status:'published'}}))
  await p.update({collection:'products',id:doc.id,user:owner,overrideAccess:false,locale:'en',data:{name:'Integration published',_status:'published'}})
  assert.equal((await p.find({collection:'products',overrideAccess:false,where:{id:{equals:doc.id}}})).totalDocs,1)
- await p.update({collection:'products',id:doc.id,user:editor,overrideAccess:false,locale:'vi',draft:true,data:{name:'Bí mật trong bản nháp'}})
+ await p.update({collection:'products',id:doc.id,user:editor,overrideAccess:false,locale:'vi',data:{name:'Bí mật trong bản nháp'}})
  const draftProbe=await p.find({collection:'products',overrideAccess:false,locale:'vi',draft:true,where:{id:{equals:doc.id}}});assert.ok(draftProbe.docs.every(d=>d.name!=='Bí mật trong bản nháp'))
  const anon=await p.findByID({collection:'products',id:doc.id,overrideAccess:false,locale:'vi'})
  assert.notEqual(anon.name,'Bí mật trong bản nháp')
