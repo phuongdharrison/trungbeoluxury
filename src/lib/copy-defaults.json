@@ -1,0 +1,422 @@
+[
+  {
+    "key": "c0",
+    "vi": "Điện thoại / Zalo",
+    "en": "Phone / Zalo"
+  },
+  {
+    "key": "c1",
+    "vi": "TƯ VẤN QUA ZALO",
+    "en": "CHAT ON ZALO"
+  },
+  {
+    "key": "c2",
+    "vi": "GỌI CHO SHOP",
+    "en": "CALL THE SHOP"
+  },
+  {
+    "key": "c3",
+    "vi": "TƯ VẤN QUA FACEBOOK",
+    "en": "CONTACT ON FACEBOOK"
+  },
+  {
+    "key": "c4",
+    "vi": "ĐẶT HÀNG",
+    "en": "ORDERING"
+  },
+  {
+    "key": "c5",
+    "vi": "Chọn đúng kích cỡ",
+    "en": "Find the right size"
+  },
+  {
+    "key": "c6",
+    "vi": "Xác nhận chiều cao, cân nặng và kích cỡ trước khi đặt hàng. Liên hệ shop qua Zalo hoặc điện thoại để được tư vấn.",
+    "en": "Confirm your height, weight and size before ordering. Contact the shop on Zalo or by phone for advice."
+  },
+  {
+    "key": "c7",
+    "vi": "ĐỔI HÀNG",
+    "en": "EXCHANGES"
+  },
+  {
+    "key": "c8",
+    "vi": "Hỗ trợ đổi một lần",
+    "en": "One exchange"
+  },
+  {
+    "key": "c9",
+    "vi": "Khách mua tại cửa hàng được hỗ trợ đổi một lần trong ngày. Shop không hoàn lại tiền.",
+    "en": "In-store purchases may be exchanged once on the same day. The shop does not offer refunds."
+  },
+  {
+    "key": "c10",
+    "vi": "PHÍ VẬN CHUYỂN",
+    "en": "SHIPPING FEES"
+  },
+  {
+    "key": "c11",
+    "vi": "Giao hàng toàn Việt Nam",
+    "en": "Delivery across Vietnam"
+  },
+  {
+    "key": "c12",
+    "vi": "Khách ở xa: giá đơn hàng + 30.000 VNĐ phí ship. Phí ship nếu hoàn hàng: 50.000 VNĐ.",
+    "en": "Remote orders: order value + 30,000 VND shipping. Shipping fee if goods are returned: 50,000 VND."
+  },
+  {
+    "key": "c13",
+    "vi": "Phí hoàn hàng không đồng nghĩa với chính sách hoàn tiền. Phương thức thanh toán và thời gian giao: chờ shop xác nhận.",
+    "en": "Return shipping does not imply a refund policy. Payment methods and delivery timing: awaiting shop confirmation."
+  },
+  {
+    "key": "c14",
+    "vi": "Ảnh phong cách minh họa, không phải sản phẩm thực tế",
+    "en": "Style illustration, not an actual product"
+  },
+  {
+    "key": "c15",
+    "vi": "Mẫu ý tưởng · Ảnh minh họa",
+    "en": "Concept style · Illustrative image"
+  },
+  {
+    "key": "c16",
+    "vi": "Bảng màu gợi ý",
+    "en": "Suggested palette"
+  },
+  {
+    "key": "c17",
+    "vi": "Giá VNĐ: chờ cập nhật",
+    "en": "Price to be confirmed"
+  },
+  {
+    "key": "c18",
+    "vi": "TRUNG BÉO LUXURY — PHONG CÁCH LỤA, DẤU ẤN RIÊNG",
+    "en": "TRUNG BÉO LUXURY — SILK STYLE, YOUR OWN SIGNATURE"
+  },
+  {
+    "key": "c19",
+    "vi": "Bộ sưu tập",
+    "en": "Collection"
+  },
+  {
+    "key": "c20",
+    "vi": "Hương Vân Sa",
+    "en": "Huong Van Sa"
+  },
+  {
+    "key": "c21",
+    "vi": "Cảm hứng",
+    "en": "Inspiration"
+  },
+  {
+    "key": "c22",
+    "vi": "Liên hệ",
+    "en": "Contact"
+  },
+  {
+    "key": "c23",
+    "vi": "Tìm kiếm",
+    "en": "Search"
+  },
+  {
+    "key": "c24",
+    "vi": "Yêu thích",
+    "en": "Saved"
+  },
+  {
+    "key": "c25",
+    "vi": "Trang chủ",
+    "en": "Home"
+  },
+  {
+    "key": "c26",
+    "vi": "Ảnh minh họa phong cách",
+    "en": "Illustrative style image"
+  },
+  {
+    "key": "c27",
+    "vi": "Mẫu ý tưởng để khám phá phong cách. Hình ảnh chưa đại diện cho sản phẩm đang bán.",
+    "en": "A concept for exploring your style. Images do not represent an available product."
+  },
+  {
+    "key": "c28",
+    "vi": "Giá: chờ xác nhận",
+    "en": "Price: to be confirmed"
+  },
+  {
+    "key": "c29",
+    "vi": "Thông tin thành phần, xuất xứ, số đo và tồn kho chưa được cung cấp. Chưa xác nhận mẫu này sử dụng lụa Hương Vân Sa.",
+    "en": "Composition, origin, measurements and stock are not yet provided. Huong Van Sa silk is not verified for this style."
+  },
+  {
+    "key": "c30",
+    "vi": "Chọn cỡ tham khảo",
+    "en": "Select a reference size"
+  },
+  {
+    "key": "c31",
+    "vi": "LƯU MẪU YÊU THÍCH",
+    "en": "SAVE THIS STYLE"
+  },
+  {
+    "key": "c32",
+    "vi": "Đã thêm vào túi đồ mẫu.",
+    "en": "Added to your sample bag."
+  },
+  {
+    "key": "c33",
+    "vi": "Xem túi đồ →",
+    "en": "View bag →"
+  },
+  {
+    "key": "c34",
+    "vi": "Thông tin sản phẩm",
+    "en": "Product information"
+  },
+  {
+    "key": "c35",
+    "vi": "Tên mẫu và bảng màu là nội dung đề xuất cho thiết kế website. Sẽ cập nhật ảnh thật và hồ sơ sản phẩm trước khi mở bán.",
+    "en": "Style names and palettes are website design proposals. Actual images and product documentation will be added before sales open."
+  },
+  {
+    "key": "c36",
+    "vi": "Kích cỡ & phom dáng",
+    "en": "Size & fit"
+  },
+  {
+    "key": "c37",
+    "vi": "S/M/L/XL hiện chỉ là lựa chọn minh họa. Bảng số đo cần được xác nhận theo từng mẫu.",
+    "en": "S/M/L/XL are illustrative options. Measurements must be confirmed for each style."
+  },
+  {
+    "key": "c38",
+    "vi": "Giao hàng & đổi trả",
+    "en": "Delivery & returns"
+  },
+  {
+    "key": "c39",
+    "vi": "Phục vụ Hà Nội và toàn Việt Nam. Khách ở xa: phí ship 30.000 VNĐ cộng giá đơn hàng; phí ship nếu hoàn hàng 50.000 VNĐ. Khách mua tại cửa hàng: đổi một lần trong ngày. Shop không hoàn tiền. Xem quy định đầy đủ trên trang chủ.",
+    "en": "Delivery across Vietnam. Remote orders: shipping 30,000 VND plus order value; return shipping 50,000 VND. In-store purchases: one exchange on the same day. No refunds. See the full policy on the home page."
+  },
+  {
+    "key": "c40",
+    "vi": "Một nét lụa.",
+    "en": "A touch of silk."
+  },
+  {
+    "key": "c41",
+    "vi": "Một khí chất.",
+    "en": "A quiet presence."
+  },
+  {
+    "key": "c42",
+    "vi": "Dành cho người phụ nữ yêu vẻ đẹp tinh giản. Tự do trong phong cách, thanh lịch theo cách riêng.",
+    "en": "For women drawn to understated beauty. Free in spirit, elegant in their own way."
+  },
+  {
+    "key": "c43",
+    "vi": "KHÁM PHÁ BỘ SƯU TẬP",
+    "en": "EXPLORE THE COLLECTION"
+  },
+  {
+    "key": "c44",
+    "vi": "Video thời trang Trung Béo Luxury",
+    "en": "Trung Beo Luxury fashion video"
+  },
+  {
+    "key": "c45",
+    "vi": "VẺ ĐẸP CỦA SỰ TỐI GIẢN",
+    "en": "THE BEAUTY OF SIMPLICITY"
+  },
+  {
+    "key": "c46",
+    "vi": "Video đầu trang do shop cung cấp · Các ảnh thời trang khác là ảnh minh họa từ Unsplash",
+    "en": "Hero video supplied by the shop · Other fashion images are illustrations from Unsplash"
+  },
+  {
+    "key": "c47",
+    "vi": "TINH GIẢN TRONG ĐƯỜNG NÉT",
+    "en": "MINIMAL IN FORM"
+  },
+  {
+    "key": "c48",
+    "vi": "TỰ DO TRONG PHONG CÁCH",
+    "en": "FREE IN SPIRIT"
+  },
+  {
+    "key": "c49",
+    "vi": "THANH LỊCH MỖI NGÀY",
+    "en": "EVERYDAY ELEGANCE"
+  },
+  {
+    "key": "c50",
+    "vi": "Chọn nét riêng của bạn",
+    "en": "Find your signature"
+  },
+  {
+    "key": "c51",
+    "vi": "GỢI Ý PHỐI ĐỒ",
+    "en": "STYLE INSPIRATION"
+  },
+  {
+    "key": "c52",
+    "vi": "Thanh lịch,\ntheo cách của bạn.",
+    "en": "Elegance,\non your terms."
+  },
+  {
+    "key": "c53",
+    "vi": "Một tủ đồ có thể đi cùng bạn qua nhiều nhịp sống: nhẹ nhàng khi dạo phố, chỉn chu ở buổi hẹn, nổi bật vừa đủ trong một tối đặc biệt.",
+    "en": "A wardrobe for every rhythm of your life: relaxed on a city walk, composed at a meeting, quietly expressive on a special evening."
+  },
+  {
+    "key": "c54",
+    "vi": "Hương Vân Sa là dòng chất liệu thương hiệu định hướng tuyển chọn. Thông tin về thành phần và nguồn gốc của từng sản phẩm sẽ được công bố khi có tài liệu xác minh.",
+    "en": "Huong Van Sa is the material direction for the planned collection. Composition and origin will be published for each product once verified documentation is available."
+  },
+  {
+    "key": "c55",
+    "vi": "KẾT NỐI VỚI THƯƠNG HIỆU",
+    "en": "CONNECT WITH THE BRAND"
+  },
+  {
+    "key": "c56",
+    "vi": "Từ ngày thường đến dịp đặc biệt",
+    "en": "From everyday to occasion"
+  },
+  {
+    "key": "c57",
+    "vi": "Nhẹ nhàng xuống phố",
+    "en": "An effortless day"
+  },
+  {
+    "key": "c58",
+    "vi": "KHÁM PHÁ PHONG CÁCH",
+    "en": "EXPLORE THE STYLE"
+  },
+  {
+    "key": "c59",
+    "vi": "Một chút kiêu sa",
+    "en": "A little radiance"
+  },
+  {
+    "key": "c60",
+    "vi": "Bảo chứng niềm tin trên từng lựa chọn",
+    "en": "Trust in every choice"
+  },
+  {
+    "key": "c61",
+    "vi": "Tìm một thiết kế dành cho mình.",
+    "en": "Find a style that feels like you."
+  },
+  {
+    "key": "c62",
+    "vi": "Tư vấn tại Hà Nội · Giao hàng toàn Việt Nam · Giá niêm yết bằng VNĐ.",
+    "en": "Based in Hanoi · Delivery across Vietnam · Prices in VND."
+  },
+  {
+    "key": "c63",
+    "vi": "Một nét lụa. Một khí chất.\nKhông gian thời trang dành cho phong cách riêng của bạn.",
+    "en": "A touch of silk. A quiet presence.\nA space for your personal style."
+  },
+  {
+    "key": "c64",
+    "vi": "KHÁM PHÁ",
+    "en": "EXPLORE"
+  },
+  {
+    "key": "c65",
+    "vi": "Câu chuyện thương hiệu",
+    "en": "Our story"
+  },
+  {
+    "key": "c66",
+    "vi": "Cảm hứng phối đồ",
+    "en": "Style inspiration"
+  },
+  {
+    "key": "c67",
+    "vi": "CHĂM SÓC KHÁCH HÀNG",
+    "en": "CUSTOMER CARE"
+  },
+  {
+    "key": "c68",
+    "vi": "Liên hệ & tư vấn",
+    "en": "Contact & styling"
+  },
+  {
+    "key": "c69",
+    "vi": "Quyền riêng tư",
+    "en": "Privacy"
+  },
+  {
+    "key": "c70",
+    "vi": "HÀ NỘI · TOÀN VIỆT NAM · VNĐ",
+    "en": "DESIGN PREVIEW · SALES NOT YET OPEN"
+  },
+  {
+    "key": "c71",
+    "vi": "Mẫu bạn yêu thích",
+    "en": "Your saved styles"
+  },
+  {
+    "key": "c72",
+    "vi": "Cỡ tham khảo",
+    "en": "Reference size"
+  },
+  {
+    "key": "c73",
+    "vi": "Xóa",
+    "en": "Remove"
+  },
+  {
+    "key": "c74",
+    "vi": "Túi đồ đang trống. Hãy chọn một mẫu bạn yêu thích.",
+    "en": "Your bag is empty. Explore a style you love."
+  },
+  {
+    "key": "c75",
+    "vi": "Đây là túi đồ mẫu, được lưu trên trình duyệt của bạn. Chưa tạo đơn hàng và chưa có thanh toán.",
+    "en": "This sample bag is saved in your browser. It does not create an order or process payment."
+  },
+  {
+    "key": "c76",
+    "vi": "TIẾP TỤC KHÁM PHÁ",
+    "en": "CONTINUE EXPLORING"
+  },
+  {
+    "key": "c77",
+    "vi": "Tìm thiết kế",
+    "en": "Find a style"
+  },
+  {
+    "key": "c78",
+    "vi": "Tìm theo tên mẫu…",
+    "en": "Search a style name…"
+  },
+  {
+    "key": "c79",
+    "vi": "Chưa tìm thấy mẫu phù hợp.",
+    "en": "No matching styles."
+  },
+  {
+    "key": "c80",
+    "vi": "Bản mẫu không yêu cầu tên, địa chỉ, số điện thoại hoặc thông tin thanh toán. Túi đồ được lưu cục bộ trên trình duyệt. Ảnh và phông chữ được tải từ dịch vụ bên ngoài (Unsplash, Google Fonts); mã giao diện sử dụng esm.sh.",
+    "en": "This preview does not request your name, address, phone or payment information. Your sample bag is stored locally in this browser. Images and fonts load from Unsplash and Google Fonts; interface code uses esm.sh."
+  },
+  {
+    "key": "c81",
+    "vi": "Xóa túi đồ đã lưu",
+    "en": "Clear saved bag"
+  },
+  {
+    "key": "c82",
+    "vi": "Quy định mua hàng",
+    "en": "Shop policies"
+  },
+  {
+    "key": "c83",
+    "vi": "Tư vấn & đặt hàng",
+    "en": "Contact & orders"
+  }
+]

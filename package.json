@@ -1,0 +1,43 @@
+{
+  "name": "trungbeoluxury-cms",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.22.1"
+  },
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build --webpack",
+    "start": "next start --port 3000",
+    "payload": "payload",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "db:migrate": "payload migrate",
+    "db:generate": "payload migrate:create",
+    "seed": "node --env-file=.env.local --import tsx scripts/seed.ts"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "3.92.0",
+    "@payloadcms/next": "3.92.0",
+    "@payloadcms/plugin-cloud-storage": "3.92.0",
+    "@payloadcms/translations": "3.92.0",
+    "@payloadcms/ui": "3.92.0",
+    "@vercel/blob": "2.8.2",
+    "graphql": "^16.11.0",
+    "htm": "^3.1.1",
+    "next": "16.4.3",
+    "payload": "3.92.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sharp": "^0.34.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "packageManager": "pnpm@10.11.0"
+}
