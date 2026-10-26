@@ -3,7 +3,7 @@ import { isOwner, owner } from '../access/index'
 export const Users: CollectionConfig = {
   slug: 'users', labels: { singular: 'Tài khoản', plural: 'Tài khoản quản trị' },
   admin: { useAsTitle: 'name', group: 'Cài đặt', defaultColumns: ['name', 'email', 'role'] },
-  auth: { maxLoginAttempts: 5, lockTime: 900000, tokenExpiration: 7200, cookies: { sameSite: 'Lax', secure: process.env.NODE_ENV === 'production' } },
+  auth: { maxLoginAttempts: 5, lockTime: 900000, tokenExpiration: 86400, cookies: { sameSite: 'Lax', secure: process.env.NODE_ENV === 'production' } },
   access: {
     admin: async ({ req }) => Boolean(req.user) || (process.env.NODE_ENV === 'development' && (await req.payload.count({collection:'users',overrideAccess:true})).totalDocs === 0),
     create: owner,

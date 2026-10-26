@@ -18,20 +18,20 @@ test('the CMS browser bundle also uses the synchronized session clock', async ()
   assert.ok(!auth.includes('Date.now'))
 })
 
-test('session lasts two hours with device clocks seven hours ahead or behind', () => {
+test('session lasts 24 hours with device clocks seven hours ahead or behind', () => {
   const serverTime = 1_800_000_000_000
   for (const skew of [-7, 0, 7]) {
     let elapsed = 0
     let deviceTime = serverTime + skew * 3_600_000
     const clock = createAuthClock({ wallNow: () => deviceTime, monotonicNow: () => elapsed })
     clock.synchronize(serverTime)
-    const expirationMs = serverTime + 7_200_000
+    const expirationMs = serverTime + 86_400_000
     const timing = getAuthSessionTiming({ expirationMs, nowMs: clock.now() })
-    assert.equal(timing.expiresAt - clock.now(), 7_200_000)
+    assert.equal(timing.expiresAt - clock.now(), 86_400_000)
     deviceTime += 86_400_000 // Changing the system clock must not expire a valid session.
     elapsed = 60_000
-    assert.equal(timing.expiresAt - clock.now(), 7_140_000)
-    elapsed = 7_200_001
+    assert.equal(timing.expiresAt - clock.now(), 86_340_000)
+    elapsed = 86_400_001
     assert.ok(clock.now() > timing.expiresAt)
     clock.synchronize(serverTime) // A delayed response or another tab cannot rewind time.
     assert.ok(clock.now() > timing.expiresAt)

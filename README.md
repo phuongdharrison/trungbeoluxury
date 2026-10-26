@@ -64,6 +64,6 @@ Chỉ báo hoàn thành toàn bộ CMS sau khi các phần còn lại được x
 
 ## Đồng hồ và phiên đăng nhập
 
-Phản hồi `/api/users/login`, `/api/users/me` và `/api/users/refresh-token` trả thêm `serverTime` (mili giây) và không được cache. Bản vá `@payloadcms/ui` trong `patches/` dùng giờ này cùng `performance.now()` cho bộ đếm phiên và đồng bộ giữa các tab. Vì vậy đồng hồ thiết bị lệch giờ không làm phiên vừa đăng nhập bị coi là hết hạn. JWT, cookie HttpOnly/Secure/SameSite và thời hạn 2 tiếng vẫn do máy chủ kiểm tra như cũ.
+Phản hồi `/api/users/login`, `/api/users/me` và `/api/users/refresh-token` trả thêm `serverTime` (mili giây) và không được cache. Bản vá `@payloadcms/ui` trong `patches/` dùng giờ này cùng `performance.now()` cho bộ đếm phiên và đồng bộ giữa các tab. Vì vậy đồng hồ thiết bị lệch giờ không làm phiên vừa đăng nhập bị coi là hết hạn. JWT, cookie HttpOnly/Secure/SameSite và thời hạn phiên 24 tiếng đều do máy chủ kiểm tra.
 
 Giữ bản vá và cấu hình `patchedDependencies` khi cài bằng pnpm. Khi nâng Payload, kiểm tra lại `tests/auth-clock.test.ts` và gỡ bản vá nếu thư viện đã hỗ trợ đồng hồ máy chủ. Không tăng thời hạn JWT để bù giờ thiết bị.
