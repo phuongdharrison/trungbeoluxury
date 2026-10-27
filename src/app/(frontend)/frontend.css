@@ -25,3 +25,7 @@
 .searchresult.search-active,.searchresult:hover,.searchresult:focus-visible{background:#ecebdf;outline:2px solid #a88951;outline-offset:-2px;padding-left:10px}
 .searchresult small{font-size:11px}
 @media(max-width:640px){.actions .searchbtn{display:inline-block}}
+
+
+.album-photo{position:relative}.photo-favorite{position:absolute;top:12px;right:12px;z-index:1;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:10px;border:1px solid #d7d4c8;border-radius:50%;background:#fff;color:#30382d;cursor:pointer;box-shadow:0 2px 8px #0002}.photo-favorite svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7}.photo-favorite[aria-pressed=true]{color:#b12b46}.photo-favorite[aria-pressed=true] svg{fill:currentColor}.photo-favorite:hover{background:#fff0f3}.photo-favorite:focus-visible{outline:3px solid #30382d;outline-offset:3px}.saved-photo>a{flex-shrink:0}.saved-photo img{object-fit:contain}
+
