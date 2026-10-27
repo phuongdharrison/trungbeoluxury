@@ -80,3 +80,7 @@ Trong `/admin`, chọn **Danh mục** hoặc **Album & Giới thiệu danh mục
 Khách bấm tên danh mục hoặc ảnh bìa tại Bộ sưu tập để đến `/bo-suu-tap/<slug>`. Album chưa có ảnh hiển thị thông báo đang cập nhật. Nhấp ảnh trong album để mở ảnh đầy đủ. Migration `20261027_000734_category_albums` bổ sung bảng ảnh, chú thích và lịch sử phiên bản; giữ nguyên nội dung danh mục có sẵn.
 
 Kiểm tra vòng đời album trong schema dùng một lần: `node --env-file=.env.local --import tsx scripts/verify-category-albums.ts`. Lệnh kiểm tra thêm ảnh, sửa chú thích, đổi thứ tự, bỏ ảnh, giới thiệu, nháp và đăng; tự dọn schema, không tải hoặc thay đổi tệp Blob của cửa hàng.
+
+## Tìm kiếm đồng bộ
+
+Website và ô tìm kiếm ở trang tổng quan `/admin` dùng chung `src/lib/search.ts`: bỏ dấu, không phân biệt hoa/thường, hỗ trợ chữ số, tên Việt/Anh và mã sản phẩm. Kết quả hiện khi gõ; ↑ ↓ chọn kết quả, Enter mở mục đã chọn. Website lấy toàn bộ sản phẩm/danh mục được phép công khai; quản trị chỉ tải dữ liệu theo quyền người đang đăng nhập và có bản nháp. Đăng thay đổi trong CMS rồi tải lại website để cập nhật danh sách tìm kiếm. Không lưu thêm chỉ mục hoặc chạy migration.
