@@ -73,7 +73,7 @@ Giữ bản vá và cấu hình `patchedDependencies` khi cài bằng pnpm. Khi 
 Trong `/admin`, chọn **Danh mục** hoặc **Album & Giới thiệu danh mục** ở trang tổng quan, rồi mở danh mục cần sửa.
 
 - Viết **Description — Giới thiệu danh mục** bằng tiếng Việt / Anh.
-- Trong **Album ảnh danh mục**, thêm hàng, tải ảnh mới hoặc chọn ảnh từ kho và nhập chú thích. Kéo thả để đổi thứ tự; xóa hàng để bỏ ảnh khỏi album.
+- Trong **Album ảnh danh mục**, thêm hàng, tải ảnh mới hoặc chọn ảnh từ kho . Kéo thả để đổi thứ tự; xóa hàng để bỏ ảnh khỏi album.
 - Ảnh cần được chủ cửa hàng bật **Cho phép hiển thị công khai** trong **Ảnh & Video**.
 - Chọn **Xem trước** để duyệt bản nháp và **Đăng thay đổi** khi sẵn sàng.
 
@@ -84,3 +84,5 @@ Kiểm tra vòng đời album trong schema dùng một lần: `node --env-file=.
 ## Tìm kiếm đồng bộ
 
 Website và ô tìm kiếm ở trang tổng quan `/admin` dùng chung `src/lib/search.ts`: bỏ dấu, không phân biệt hoa/thường, hỗ trợ chữ số, tên Việt/Anh và mã sản phẩm. Kết quả hiện khi gõ; ↑ ↓ chọn kết quả, Enter mở mục đã chọn. Website lấy toàn bộ sản phẩm/danh mục được phép công khai; quản trị chỉ tải dữ liệu theo quyền người đang đăng nhập và có bản nháp. Đăng thay đổi trong CMS rồi tải lại website để cập nhật danh sách tìm kiếm. Không lưu thêm chỉ mục hoặc chạy migration.
+
+Trong danh mục, phần **Thêm nhiều ảnh vào album** cho phép chọn nhiều JPG/PNG/WebP cùng lúc (tối đa 4 MB mỗi ảnh). Chủ cửa hàng có thể bật công khai cho cả lượt tải. Ảnh tải lỗi được báo riêng; ảnh thành công được thêm cuối album theo thứ tự chọn. Sau khi tải xong, chọn Lưu nháp hoặc Đăng thay đổi. Ô chú thích ảnh đã được bỏ khỏi giao diện; dữ liệu chú thích cũ được giữ để tránh mất nội dung.

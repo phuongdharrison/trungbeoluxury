@@ -1,3 +1,4 @@
+import { default as default_8bc5b7c72f5c2db0b615cedbba69ece3 } from '../../../components/AlbumBulkUpload'
 import { default as default_a0d8e6e15f04a44400ebacfb01b4f1a0 } from '../../../components/CategoryAlbumList'
 import { default as default_919492c8e60179286a0f183c0a5b652e } from '../../../components/Logo'
 import { default as default_9bb901c3c72b245194b0bf8c555ce638 } from '../../../components/AdminWelcome'
@@ -5,6 +6,7 @@ import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } f
 
 /** @type import('payload').ImportMap */
 export const importMap = {
+  "/components/AlbumBulkUpload#default": default_8bc5b7c72f5c2db0b615cedbba69ece3,
   "/components/CategoryAlbumList#default": default_a0d8e6e15f04a44400ebacfb01b4f1a0,
   "/components/Logo#default": default_919492c8e60179286a0f183c0a5b652e,
   "/components/AdminWelcome#default": default_9bb901c3c72b245194b0bf8c555ce638,
