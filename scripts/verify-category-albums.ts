@@ -19,7 +19,7 @@ try {
  }
  const isolatedConfig = await config
  const adapter = postgresAdapter({ pool: { connectionString: process.env.DATABASE_URL, max: 6 }, schemaName: schema, push: false })
- isolatedConfig.db = { ...adapter, allowIDOnCreate: adapter.allowIDOnCreate ?? false }
+ isolatedConfig.db = { ...adapter, allowIDOnCreate: adapter.allowIDOnCreate ?? false, name: adapter.name ?? 'postgres' }
  payload = await getPayload({ config: isolatedConfig })
  const user = await payload.create({ collection: 'users', context: { internalUserBootstrap: true }, data: {
   name: 'Album QA', email: 'album-qa@example.invalid', password: randomBytes(32).toString('hex'), role: 'owner',
