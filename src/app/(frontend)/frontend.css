@@ -1,1 +1,12 @@
 /* Original storefront styles remain in public/style.css. */
+
+/* Category albums */
+.filters a{display:inline-flex;align-items:center;padding:12px 18px;border:1px solid #d7d4c8;text-decoration:none;font-size:12px;color:inherit}
+.filters a:hover,.filters a:focus-visible{background:#ecebdf}
+.category-album{min-height:60vh}.category-album h1{font-size:clamp(30px,5vw,58px);font-weight:400;line-height:1.2;margin:24px 0}
+.category-description{max-width:800px;white-space:pre-wrap;line-height:1.8;margin-bottom:32px}
+.category-links{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 40px}.category-links a{padding:10px 14px;border:1px solid #d7d4c8;font-size:12px;text-decoration:none;color:inherit}.category-links a[aria-current=page]{background:#30382d;color:white}
+.album-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin-bottom:48px;align-items:start}.album-grid figure{margin:0}.album-grid img{display:block;width:100%;height:auto}.album-grid figcaption{padding:12px 0;line-height:1.6;white-space:pre-wrap}.category-album .products{margin:28px 0 48px}
+@media(max-width:800px){.album-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}@media(max-width:480px){.album-grid{grid-template-columns:1fr}.category-links{gap:8px}}
+
+.category-card{display:block;text-decoration:none;color:inherit}.category-card:focus-visible{outline:2px solid #30382d;outline-offset:5px}

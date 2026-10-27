@@ -160,6 +160,8 @@ export interface User {
   collection: 'users';
 }
 /**
+ * Mỗi danh mục có một trang album riêng. Thêm ảnh, kéo thả để sắp xếp, viết giới thiệu rồi Đăng thay đổi.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
@@ -167,11 +169,71 @@ export interface Category {
   id: number;
   name: string;
   slug: string;
+  /**
+   * Nội dung giới thiệu hiển thị phía trên album ảnh.
+   */
   description?: string | null;
+  /**
+   * Thêm / thay ảnh, xóa hoặc kéo thả để đổi thứ tự. Ảnh cần được cho phép hiển thị công khai trong kho Ảnh & Video.
+   */
+  gallery?:
+    | {
+        image: number | Media;
+        caption?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   order?: number | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * Kho tệp riêng tư. Chỉ bật “Cho phép hiển thị công khai” cho ảnh/video bạn muốn đưa lên website.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  /**
+   * Chỉ chủ cửa hàng có thể bật. Không tải hồ sơ hoặc tài liệu nhạy cảm vào đây.
+   */
+  public?: boolean | null;
+  credit?: string | null;
+  illustrative?: boolean | null;
+  prefix?: string | null;
+  _objectKey?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -223,53 +285,6 @@ export interface Product {
   createdAt: string;
   deletedAt?: string | null;
   _status?: ('draft' | 'published') | null;
-}
-/**
- * Kho tệp riêng tư. Chỉ bật “Cho phép hiển thị công khai” cho ảnh/video bạn muốn đưa lên website.
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  alt: string;
-  /**
-   * Chỉ chủ cửa hàng có thể bật. Không tải hồ sơ hoặc tài liệu nhạy cảm vào đây.
-   */
-  public?: boolean | null;
-  credit?: string | null;
-  illustrative?: boolean | null;
-  prefix?: string | null;
-  _objectKey?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-  sizes?: {
-    card?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    thumbnail?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -406,6 +421,13 @@ export interface CategoriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
   description?: T;
+  gallery?:
+    | T
+    | {
+        image?: T;
+        caption?: T;
+        id?: T;
+      };
   order?: T;
   updatedAt?: T;
   createdAt?: T;
