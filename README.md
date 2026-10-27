@@ -67,3 +67,16 @@ Chỉ báo hoàn thành toàn bộ CMS sau khi các phần còn lại được x
 Phản hồi `/api/users/login`, `/api/users/me` và `/api/users/refresh-token` trả thêm `serverTime` (mili giây) và không được cache. Bản vá `@payloadcms/ui` trong `patches/` dùng giờ này cùng `performance.now()` cho bộ đếm phiên và đồng bộ giữa các tab. Vì vậy đồng hồ thiết bị lệch giờ không làm phiên vừa đăng nhập bị coi là hết hạn. JWT, cookie HttpOnly/Secure/SameSite và thời hạn phiên 24 tiếng đều do máy chủ kiểm tra.
 
 Giữ bản vá và cấu hình `patchedDependencies` khi cài bằng pnpm. Khi nâng Payload, kiểm tra lại `tests/auth-clock.test.ts` và gỡ bản vá nếu thư viện đã hỗ trợ đồng hồ máy chủ. Không tăng thời hạn JWT để bù giờ thiết bị.
+
+## Album ảnh theo danh mục
+
+Trong `/admin`, chọn **Danh mục** hoặc **Album & Giới thiệu danh mục** ở trang tổng quan, rồi mở danh mục cần sửa.
+
+- Viết **Description — Giới thiệu danh mục** bằng tiếng Việt / Anh.
+- Trong **Album ảnh danh mục**, thêm hàng, tải ảnh mới hoặc chọn ảnh từ kho và nhập chú thích. Kéo thả để đổi thứ tự; xóa hàng để bỏ ảnh khỏi album.
+- Ảnh cần được chủ cửa hàng bật **Cho phép hiển thị công khai** trong **Ảnh & Video**.
+- Chọn **Xem trước** để duyệt bản nháp và **Đăng thay đổi** khi sẵn sàng.
+
+Khách bấm tên danh mục hoặc ảnh bìa tại Bộ sưu tập để đến `/bo-suu-tap/<slug>`. Album chưa có ảnh hiển thị thông báo đang cập nhật. Nhấp ảnh trong album để mở ảnh đầy đủ. Migration `20261027_000734_category_albums` bổ sung bảng ảnh, chú thích và lịch sử phiên bản; giữ nguyên nội dung danh mục có sẵn.
+
+Kiểm tra vòng đời album trong schema dùng một lần: `node --env-file=.env.local --import tsx scripts/verify-category-albums.ts`. Lệnh kiểm tra thêm ảnh, sửa chú thích, đổi thứ tự, bỏ ảnh, giới thiệu, nháp và đăng; tự dọn schema, không tải hoặc thay đổi tệp Blob của cửa hàng.
